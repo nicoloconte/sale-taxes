@@ -4,6 +4,8 @@
 package com.lastminute.test.domain;
 
 /**
+ * Enum that rapresent the §{@link Good} type.
+ * 
  * @author nconte
  *
  */

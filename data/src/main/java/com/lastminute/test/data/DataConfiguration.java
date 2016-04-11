@@ -18,6 +18,7 @@ import org.springframework.orm.jpa.vendor.Database;
 import org.springframework.orm.jpa.vendor.EclipseLinkJpaVendorAdapter;
 
 /**
+ * Spring configuration for data module.
  * 
  * @author nconte
  *

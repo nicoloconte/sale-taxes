@@ -12,6 +12,8 @@ import com.lastminute.test.domain.Good;
 import com.lastminute.test.domain.ShoppingBasket;
 
 /**
+ * Implementation of a Shopping Basket. ({@code implements ShoppingBasket})
+ * 
  * @author nconte
  *
  */
@@ -47,15 +49,16 @@ public class ShoppingBasketImpl implements ShoppingBasket {
 
 	/**
 	 * Add a good into the basket
+	 * 
 	 * @param good
 	 */
-	public void addGood(Good good){
-		if(goods == null){
+	public void addGood(Good good) {
+		if (goods == null) {
 			goods = new ArrayList<Good>();
 		}
 		goods.add(good);
 	}
-	
+
 	@Override
 	public String toString() {
 		final int maxLen = 5;

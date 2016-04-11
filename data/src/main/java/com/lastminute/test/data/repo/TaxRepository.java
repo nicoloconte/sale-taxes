@@ -8,6 +8,8 @@ import org.springframework.data.repository.CrudRepository;
 import com.lastminute.test.data.entity.Tax;
 
 /**
+ * CRUD Repository for TAXES table. See entity {@link Tax}.
+ * 
  * @author nconte
  *
  */

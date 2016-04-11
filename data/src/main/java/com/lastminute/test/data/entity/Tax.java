@@ -15,6 +15,9 @@ import javax.persistence.UniqueConstraint;
 import com.lastminute.test.domain.GoodType;
 
 /**
+ * Entity bean for TAXES table. It contains taxes by good type with the base tax
+ * to apply and the duty for imported goods.
+ * 
  * @author nconte
  *
  */

@@ -27,6 +27,9 @@ import com.lastminute.test.domain.GoodType;
 import com.lastminute.test.domain.ShoppingBasket;
 
 /**
+ * Implementation of {@link ShoppingBasket}. After bean initialization, it loads
+ * the taxes' table items for cache purpose.
+ * 
  * @author nconte
  *
  */
@@ -54,13 +57,13 @@ public class ShoppingReceiptServiceImpl implements ShoppingReceiptService, Initi
 		shoppingBasket.setSalesTaxes(grandTotal.subtract(grossCosts));
 
 		print(shoppingBasket);
-		
+
 		logger.info("end processing shoppingBasket");
 		return shoppingBasket;
 	}
 
 	/**
-	 * Print the receipt into the logs
+	 * Print the receipt into the logs.
 	 * 
 	 * @param shoppingBasket
 	 */
@@ -85,7 +88,7 @@ public class ShoppingReceiptServiceImpl implements ShoppingReceiptService, Initi
 	}
 
 	/**
-	 * Fill taxes fon any goods
+	 * Fill taxes for any goods in the shopping basket.
 	 * 
 	 * @param shoppingBasket
 	 */
@@ -104,24 +107,31 @@ public class ShoppingReceiptServiceImpl implements ShoppingReceiptService, Initi
 	}
 
 	/**
+	 * Sum amount for all goods in the shopping basket with the input function.
 	 * 
 	 * @param shoppingBasket
 	 * @param func
 	 */
 	public BigDecimal sumAmount(ShoppingBasket shoppingBasket, Function<Good, BigDecimal> func) {
 		Optional<BigDecimal> reduce = shoppingBasket.getGoods().stream().map(func).reduce((x, y) -> x.add(y));
-		return roundAmount(reduce.get());
+		return roundAmountHalfUp(reduce.get());
 	}
 
 	/**
+	 * Round amount to two decimal (HALF_UF)
 	 * 
 	 * @param amount
 	 * @return
 	 */
-	public BigDecimal roundAmount(BigDecimal amount) {
+	public BigDecimal roundAmountHalfUp(BigDecimal amount) {
 		return amount.setScale(2, RoundingMode.HALF_UP);
 	}
 
+	/**
+	 * Loads all taxes from TAXES table and put them into a map
+	 * {@code Map<GoodType, Tax> taxByType} where key is {@link GoodType} for
+	 * caching purpose.
+	 */
 	@Override
 	public void afterPropertiesSet() throws Exception {
 		logger.debug("start building taxMap");

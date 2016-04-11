@@ -1,4 +1,8 @@
 # salestaxes
+
+### Requirements:
+* JDK 8
+
 Il progetto maven contiene tre moduli:
 * domain: che contiene il modello dati
 * data: che contiene le componenti JPA per l'accesso alla base dati
@@ -6,9 +10,9 @@ Il progetto maven contiene tre moduli:
 
 E' stati scelto di configurare a livello di DB le tasse da applicare ai vari beni in modo da poterle variare senza interventi sul codice applicativo
 
-La classe di test `IntegrationTest` contiene il test di integrazione che esegue l'esercizio richiesto.
+### La classe di test `IntegrationTest` contiene il test di integrazione che esegue l'esercizio richiesto.
 
-La classe di test `ShoppingReceiptServiceImplTest` è stata usata per le implementazioni del Service contenente le lgiche di Business con approccio TDD.
+La classe di test `ShoppingReceiptServiceImplTest` è stata usata per le implementazioni del Service contenente le logiche di Business con approccio TDD.
 
 La classe `DataTest` contiene la suite di test per la parte JPA.
 

@@ -10,6 +10,10 @@ import com.lastminute.test.domain.Good;
 import com.lastminute.test.domain.GoodType;
 
 /**
+ * Implementation of a Good to buy. ({@code implements Good}).
+ * 
+ * Default quantity is 1 and for default a Food isn't imported.
+ * 
  * @author nconte
  *
  */
